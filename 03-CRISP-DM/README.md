@@ -8,7 +8,6 @@
 Aplicar los dos primeros niveles de la metodología CRISP-DM (business understanding y data understanding) para abordar un problema de minería de datos.
 
 
-
 **Instrucciones:**  
 Selecciona un tema de interés que pueda ser analizado con datos disponibles.  
 Define y delimita un problema de minería de datos.  
@@ -26,6 +25,7 @@ Reportes de la fase data understanding:
 Calidad de los datos (máximo 2 cuartillas cada uno).
 - Todos los reportes deberán entregarse en formato .pdf, en formato adecuado (párrafos justificados, tamaño de letra 11 o 12, etc.).
 
+> No poner mucho ni muy poco D:
 
 **Fuentes de datos sugeridas:**  
 - [Sistema de información Económica, Banco de México](https://www.banxico.org.mx/SieInternet/)
