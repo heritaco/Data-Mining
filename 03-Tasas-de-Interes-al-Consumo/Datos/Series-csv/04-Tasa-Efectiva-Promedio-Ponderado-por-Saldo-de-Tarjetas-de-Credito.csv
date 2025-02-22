@@ -1,0 +1,29 @@
+Unnamed: 0,Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4
+,,,,Fecha de consulta: 22/02/2025 04:51 PM
+,,,,
+,Tasa efectiva promedio ponderado por saldo de tarjetas de crédito (CR),,,
+,Tasas y precios de referencia,,,
+,,,,
+,"CF840, Bimestral, Sin Unidad, Porcentajes",,,
+,,,,
+,,,,
+,,Ene-Feb 2024,Mar-Abr 2024,May-Jun 2024
+,Tasa efectiva promedio ponderado por saldo de tarjetas de crédito (CR),,,
+, ● Tarjetas de crédito,,,
+,  ⚬ Todos los clientes (con y sin promociones),22.64,24.43,24.55
+,  ⚬ Clientes no totaleros (con y sin promociones),37.39,37.73,38.08
+,  ⚬ Clientes no totaleros sin promociones,53.79,53.7,54.01
+, ● Fuente:,,,
+,"  ⚬ Elaborado con datos proporcionados por las instituciones de crédito para los meses de febrero, abril, junio, agosto, octubre y diciembre, por lo que las series solo se pueden generar bimestralmente. Las instituciones son las responsables de la calidad de la información reportada a Banco de México. Cifras sujetas a revisión.",,,
+,  ⚬ Se está revisando la información de algunas instituciones para diciembre de 2022 y febrero de 2023.,,,
+,"  ⚬ A partir de diciembre de 2021, se incluyó información de banco Azteca.",,,
+,"  ⚬ A partir de febrero de 2023, Santander Consumo se fusionó con Banco Santander.",,,
+, ● Metodología:,,,
+,  ⚬ La tasa efectiva se obtiene de anualizar el cociente de los intereses generados en el período entre el saldo correspondiente de cada tarjeta.,,,
+,"  ⚬ Se conoce como cliente ""totalero"" al que paga el saldo total de la tarjeta de crédito cada mes y como ""no totalero"" al que no lo hace así. Un cliente totalero tiene una tasa efectiva igual a cero.",,,
+,"  ⚬ La metodología para el cálculo de la tasa de interés promedio ponderado por saldo se describe en el anexo metodológico de los Reportes de Indicadores Básicos publicados por Banco de México, en donde también se incluye un análisis más profundo de estos créditos:",,,
+,  ⚬ Reportes de Indicadores Básicos de Tarjetas de Crédito,,,
+,"  ⚬ Para el cálculo de las tasas de interés, se excluyeron tarjetas que solo puedan utilizarse en comercios específicos, tarjetas de crédito empresariales, tarjetas que no fueran utilizadas durante el periodo, tarjetas pertenencientes a clientes atrasados o morosos y las reestructuradas, también se excluyeron tarjetas otorgados a empleados o a otros clientes relacionados con el banco emisor.",,,
+, ● Otros recursos,,,
+,  ⚬ Para realizar otro tipo de análisis de series de datos tanto a nivel sistema como por institución y con otros criterios de filtrado visite:,,,
+,  ⚬ Herramienta de Análisis de indicadores de crédito,,,
