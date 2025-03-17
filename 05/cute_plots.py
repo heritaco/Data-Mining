@@ -2,6 +2,7 @@
 
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 
 
 def box_plot(column, mergefull, dictcat, palette):
@@ -17,13 +18,13 @@ def box_plot(column, mergefull, dictcat, palette):
     plt.grid(axis='x', linestyle='--', alpha=0)    # cuadricula en el eje x
     
     sns.despine(left=True)  # quitar el borde izquierdo
-    plt.savefig(f'boxplot_{column}.svg', bbox_inches='tight')  # guardar la grafica
+    plt.savefig(f'svg/boxplot_{column}.svg', bbox_inches='tight')  # guardar la grafica
     plt.show()
 
-def histograma(column, mergefull, dictcat, palette, numerito=False):
+def histograma(column, mergefull, dictcat, palette, colnum=0, kde=False, bins='auto', numerito=False):
     sns.set_style('whitegrid')  # estilo de la grafica
     plt.figure(figsize=(10, 6))
-    ax = sns.histplot(mergefull[column], color=palette[0], alpha=0.7, binwidth=1)
+    ax = sns.histplot(mergefull[column], color=palette[colnum], alpha=0.6, kde=kde, bins=bins)
     plt.title(dictcat[column] + '\n', fontsize=16, fontweight='bold')
     plt.xlabel("")
     plt.ylabel('Frecuencia', fontsize=12)
@@ -41,7 +42,7 @@ def histograma(column, mergefull, dictcat, palette, numerito=False):
         
     sns.despine(left=True)  # quitar el borde izquierdo
     plt.tight_layout()
-    plt.savefig(f'histograma_{column}.svg', bbox_inches='tight')  # guardar la grafica
+    plt.savefig(f'svg/histograma_{column}.svg', bbox_inches='tight')  # guardar la grafica
     plt.show()
 
 def grafico_de_barras(column, mergefull, dictcat, diccionario_etiquetas, palette, plotdesconocido=False, numerito=True):
@@ -72,7 +73,7 @@ def grafico_de_barras(column, mergefull, dictcat, diccionario_etiquetas, palette
                         textcoords='offset points')
     
     sns.despine(left=True)  # quita el borde izquierdo
-    plt.savefig(f'grafico_de_barras_{column}.svg', bbox_inches='tight')  # guardar la grafica
+    plt.savefig(f'svg/grafico_de_barras_{column}.svg', bbox_inches='tight')  # guardar la grafica
     plt.show()
 
 def heatmap(x, y, mergefull, dictcat, diccionario_etiquetas, categorico=True): # se supone que es para categoricos
@@ -98,7 +99,7 @@ def heatmap(x, y, mergefull, dictcat, diccionario_etiquetas, categorico=True): #
         ax.set_yticklabels([diccionario_etiquetas.get(x, {}).get(str(tag), 'Desconocido') for tag in vcx.index], rotation=0)
 
     plt.tight_layout()
-    plt.savefig(f'heatmap_{x}_{y}.svg', bbox_inches='tight')  # guardar la grafica
+    plt.savefig(f'svg/heatmap_{x}_{y}.svg', bbox_inches='tight')  # guardar la grafica
         
     plt.show()
 
@@ -116,11 +117,11 @@ def matriz_correlacion(columns, mergefull, dictcat):
     ax.set_xticklabels('')  # que en el eje x no haya etiquetas
     ax.set_yticklabels(yticklabels, fontsize=10, rotation=0) # etiquetas en el eje y
 
-    plt.savefig('matriz_correlacion.svg', bbox_inches='tight')  # bbox para no cortar la grafica
+    plt.savefig('svg/matriz_correlacion.svg', bbox_inches='tight')  # bbox para no cortar la grafica
 
     plt.show()
 
-def scatter_plot(x, y, mergefull, dictcat, diccionario_etiquetas, palette):
+def scatter_plot(x, y, mergefull, dictcat, palette):
     sns.set_style('whitegrid')
     plt.figure(figsize=(10, 6))
     ax = sns.scatterplot(data=mergefull, x=x, y=y, color=palette[0], alpha=0.15, linewidth=0.1)
@@ -132,7 +133,7 @@ def scatter_plot(x, y, mergefull, dictcat, diccionario_etiquetas, palette):
     plt.grid(True, linestyle='--', alpha=0.5)   # cuadricula
     plt.tight_layout()
     sns.despine(left=True)  # quitae l borde izquierdo
-    plt.savefig(f'scatter_plot_{x}_{y}.svg', bbox_inches='tight')  # guardar la grafica
+    plt.savefig(f'svg/scatter_plot_{x}_{y}.svg', bbox_inches='tight')  # guardar la grafica
     plt.show()
 
 class CutePlots:
@@ -142,12 +143,16 @@ class CutePlots:
         self.diccionario_etiquetas = diccionario_etiquetas
         self.palette = sns.color_palette(colorpalette)
 
+        # Crear la carpeta 'svg' si no existe
+        if not os.path.exists('svg'):
+            os.makedirs('svg')
+
     def box_plot(self, column):
         return box_plot(column, self.mergefull, self.dictcat, self.palette)
 
-    def histograma(self, column, numerito=False):
-        return histograma(column, self.mergefull, self.dictcat, self.palette, numerito)
-    
+    def histograma(self, column, colnum=0, kde=False, bins='auto', numerito=False):
+        return histograma(column, self.mergefull, self.dictcat, self.palette, colnum, kde, bins, numerito)
+
     def grafico_de_barras(self, column, plotdesconocido=False, numerito=True):
         return grafico_de_barras(column, self.mergefull, self.dictcat, self.diccionario_etiquetas, self.palette, plotdesconocido, numerito)
     
@@ -158,4 +163,4 @@ class CutePlots:
         return matriz_correlacion(columns, self.mergefull, self.dictcat)
     
     def scatter_plot(self, x, y):
-        return scatter_plot(x, y, self.mergefull, self.dictcat, self.diccionario_etiquetas, self.palette)
+        return scatter_plot(x, y, self.mergefull, self.dictcat, self.palette)
