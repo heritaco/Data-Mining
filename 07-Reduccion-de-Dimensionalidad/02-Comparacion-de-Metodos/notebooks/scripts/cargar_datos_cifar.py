@@ -58,7 +58,7 @@ def unpickle(file):
 def i_want_to_see_a_(img, data_dict, meta_dict):
 
     # Definimos la ruta de los datos y resultados
-    path_resultados = Path("../resultados")
+    path_resultados = Path("../resultados/imagenes")
     
     # Extraer las labels
     label_names = [label.decode('utf-8') for label in meta_dict[b'label_names']]
